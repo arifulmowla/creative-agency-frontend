@@ -1,0 +1,26 @@
+.service {
+  padding: 28px 32px;
+  border-radius: 12px;
+
+  h4 {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .service-img {
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+  }
+
+  p {
+    color: rgba($color: #000000, $alpha: 0.7);
+  }
+}
+
+.service:hover {
+  cursor: pointer;
+
+  box-shadow: 3px 3px 24px lightgray;
+  background-color: white;
+  transform: scale(120%);
+}

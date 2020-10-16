@@ -1,0 +1,33 @@
+@import "../../_color.global";
+.sidebar {
+  padding: 30px 60px;
+  img {
+    width: 150px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+
+    li {
+      padding: 10px 0;
+      a {
+        color: rgba($color: #000000, $alpha: 0.8);
+        text-decoration: none;
+
+        svg {
+          margin-right: 15px;
+          font-size: 14px;
+          width: 20px;
+        }
+      }
+    }
+
+    li:hover {
+      a {
+        color: $primary;
+      }
+    }
+  }
+}

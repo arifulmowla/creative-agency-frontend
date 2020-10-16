@@ -1,0 +1,14 @@
+@import "../../_color.global";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+}
+.header {
+  .header-logo {
+    max-height: 40px;
+  }
+}
+.secondary-btn {
+  width: 130px;
+  background-color: $black;
+}

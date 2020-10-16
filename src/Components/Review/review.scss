@@ -1,0 +1,13 @@
+.review {
+  padding: 28px 32px;
+  border: 1px solid #bfbfbf;
+
+  .review-name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  p {
+    color: rgba($color: #000000, $alpha: 0.8);
+  }
+}

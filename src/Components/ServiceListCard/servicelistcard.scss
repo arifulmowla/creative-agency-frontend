@@ -1,0 +1,30 @@
+.service-list-card {
+  background-color: white;
+  padding: 30px 36px;
+  border-radius: 12px;
+  margin: 30px 20px;
+  .service-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px 10px 0;
+
+    img {
+      max-width: 70px;
+    }
+  }
+
+  p {
+    color: rgba($color: black, $alpha: 0.7);
+  }
+}
+
+.status-Pending {
+  background-color: #ffe3e3 !important;
+  color: #ff4545 !important;
+}
+
+.status-Done {
+  background-color: #c6ffe0 !important;
+  color: #009444 !important;
+}

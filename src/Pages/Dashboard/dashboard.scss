@@ -1,0 +1,13 @@
+.dashboard {
+  overflow-x: hidden;
+  .dashboard-body {
+    background-color: #f4f7fc;
+    min-height: 100vh;
+
+    .dash-head {
+      background-color: white;
+      padding: 15px 0;
+      width: 100%;
+    }
+  }
+}
