@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import ServiceListCard from '../../Components/ServiceListCard/ServiceListCard';
 
-import { ServicesOrderList, GetUserOrders} from '../../Store/Store';
+import { GetUserOrders} from '../../Store/Store';
 import Dashboard from '../Dashboard/Dashboard';
 import './serviceslist.scss'
 
 const ServicesList = () => {
 
-    const servicesList = ServicesOrderList;
 
     const [usersOrders, setUsersOrders] = useState([]);
 
