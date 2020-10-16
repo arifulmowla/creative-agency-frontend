@@ -41,15 +41,15 @@ const Home = () => {
                      <h2 className="sub-heading text-center">Provide awesome <span className="text-color">services</span></h2>
                     <div className="row my-5">
                          { !serviceData.length && 
-                            <div class="spinner">
-                                <div class="loading">
-                                    <div class="bounceball"></div>
-                                    <div class="text">NOW LOADING</div>
+                            <div className="spinner">
+                                <div className="loading">
+                                    <div className="bounceball"></div>
+                                    <div className="text">NOW LOADING</div>
                                 </div>
                             </div>
                         }
                     { serviceData &&
-                        serviceData.map(service => <div className="col-md-4"><Service service={service}></Service></div>)
+                        serviceData.map(service => <div className="col-md-4" key={service._id}><Service service={service}></Service></div>)
                     }
                         
                        
@@ -68,16 +68,16 @@ const Home = () => {
                         <h2 className="sub-heading text-center">Client's <span className="text-color">Feedback</span></h2>
                     <div className="row py-5">
                     { !reviewData.length && 
-                            <div class="spinner">
-                                <div class="loading">
-                                    <div class="bounceball"></div>
-                                    <div class="text">NOW LOADING</div>
+                            <div className="spinner">
+                                <div className="loading">
+                                    <div className="bounceball"></div>
+                                    <div className="text">NOW LOADING</div>
                                 </div>
                             </div>
                         }
 
                         {reviewData &&
-                            reviewData.map(review => <div className="col-md-4 py-3"><Review review={review}></Review></div>)
+                            reviewData.map(review => <div className="col-md-4 py-3" key={review._id}><Review review={review}></Review></div>)
                         }
                         </div>
                 </Container>
