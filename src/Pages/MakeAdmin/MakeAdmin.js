@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { Button } from 'react-bootstrap';
 import './make-admin.scss'
 import { AddAdmin } from '../../Store/Store';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+
 
 const MakeAdmin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -11,8 +14,18 @@ const MakeAdmin = () => {
     const token = sessionStorage.getItem('token');
     const onSubmit = data => {
         console.log(data)
-        AddAdmin(data, token).then(result => console.log(result))
+        AddAdmin(data, token).then(result => {
+            console.log(result)
+            if (result) {
+                successNotify()
+            }
+        })
     };
+
+
+    const successNotify = () => {
+          NotificationManager.success('Added a new admin Successfully!', 'Admin Added');
+    }
     return (
         <div className="make-admin">
             <Dashboard isAdmin={true} title={'Add an Admin'}>

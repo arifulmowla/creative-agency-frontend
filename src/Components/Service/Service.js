@@ -7,8 +7,8 @@ const Service = ({service}) => {
     const [selectedService, setSelectedService] = useContext(HomeContext)
     const history = useHistory();
 
-    const serviceHandle = (value) => {
-        setSelectedService(value);
+    const serviceHandle = (data) => {
+        setSelectedService({ value: data, label: data.title });
         history.push('/order');
     }
     return (

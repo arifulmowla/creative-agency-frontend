@@ -12,3 +12,11 @@ body {
   width: 130px;
   background-color: $black;
 }
+
+.custom-nav-link {
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.custom-nav-link:hover {
+}

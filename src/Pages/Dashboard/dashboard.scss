@@ -11,3 +11,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .dashboard .dashboard-body .dash-head {
+    h2 {
+      font-size: 18px;
+      margin-left: 10%;
+    }
+
+    .dropdown-toggle {
+      white-space: nowrap;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,9 +1,7 @@
-import { Button } from 'react-bootstrap';
 import React from 'react';
 import './servicelistcard.scss'
 
 const ServiceListCard = ({ service }) => {
-    console.log("service", service)
     return (
         <div className="service-list-card">
             <div className="service-flex">

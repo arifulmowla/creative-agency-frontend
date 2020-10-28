@@ -3,6 +3,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import { useForm } from "react-hook-form";
 import { Container } from 'react-bootstrap';
 import './addservices.scss'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 
 // firebase config files
@@ -13,15 +14,15 @@ import 'firebase/storage';
 import { PostService } from '../../Store/Store';
 const AddServices = () => {
     const token = sessionStorage.getItem('token');
-    const [imgUrl, setImgUrl] = useState('');
+
     var storageRef = firebase.app().storage("gs://creative-agency-frontend.appspot.com").ref("service_icons/");
 
 
-     const { register, handleSubmit, watch, errors } = useForm();
+     const { register, handleSubmit,  errors } = useForm();
     const onSubmit = data => {
-        console.log(data)
+    
         const image = data.icon[0];
-        console.log(image.name)
+
 
 
 var fileRef = storageRef.child(image.name);
@@ -43,16 +44,14 @@ var fileRef = storageRef.child(image.name);
           .getDownloadURL()
           .then(url => {
             // this.setState({ url });
-              setImgUrl(url);
-
-              console.log(imgUrl);
 
               data.icon = url;
               console.log(data)
 
               PostService(data, token).then(result => {
-                  if (result.status == 200) {
-                      console.log("success")
+                  if (result) {
+                    console.log(result)
+                    successNotify()
                   } else {
                       sessionStorage.removeItem('token');
                 sessionStorage.removeItem('user');
@@ -63,11 +62,14 @@ var fileRef = storageRef.child(image.name);
       }
     );
 
+  };
+  
 
 
-
-
-    };
+   const successNotify = () => {
+          NotificationManager.success('New services added successfully!', 'Success');
+    }
+    
     return (
         <div className="add-services">
             <Dashboard isAdmin={true} title={'Add Services'}>
@@ -75,7 +77,7 @@ var fileRef = storageRef.child(image.name);
                      <div className="add-service-form p-3">
                     <form onSubmit={handleSubmit(onSubmit)}>
                    
-<div className="row">
+<div className="row rounded">
                         <div className="col-md-6">
                             <div className="form-group">
                                 <label htmlFor="title">Service Title</label>
@@ -100,7 +102,8 @@ var fileRef = storageRef.child(image.name);
                     </form>
                     </div>
                 </Container>
-             </Dashboard>
+        </Dashboard>
+         <NotificationContainer/>
         </div>
     );
 };

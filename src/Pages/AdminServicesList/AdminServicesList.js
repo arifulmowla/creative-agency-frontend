@@ -5,10 +5,19 @@ import { Container } from 'react-bootstrap';
 import { ChangeStatus, GetAllOrders} from '../../Store/Store';
 import { Dropdown } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+
+
 const AdminServicesList = () => {
 
   const [orders, setOrders] = useState([]);
-    const data = [{ id: 1, title: 'Conan the Barbarian', year: '1982' } ];
+  
+
+      const successNotify = () => {
+          NotificationManager.success('Status Updated successfully!', 'Status Updated!');
+    }
+    
     const columns = [
       {
         name: 'Name',
@@ -58,7 +67,10 @@ const AdminServicesList = () => {
 
   const handleStatus = (e, id) => {
     const setStatus = e.target.value;
-    ChangeStatus({ status: setStatus, _id: id }, token).then(result => console.log(result));
+    ChangeStatus({ status: setStatus, _id: id }, token).then(result => {
+      console.log('result', result)
+      successNotify()
+    });
 }
 
   useEffect(() => {
@@ -76,7 +88,9 @@ console.log(orders)
                 data={orders}
               />
               </Container>
-            </Dashboard>
+        </Dashboard>
+        
+         <NotificationContainer/>
         </div>
     );
 };

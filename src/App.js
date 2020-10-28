@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 
+import 'react-notifications/lib/notifications.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';

@@ -7,7 +7,7 @@ import Hero from '../../Components/Hero/Hero';
 import Review from '../../Components/Review/Review';
 import Service from '../../Components/Service/Service';
 import Works from '../../Components/Works/Works';
-import { GetAllFeedback, GetAllServices, ReviewData, ServicesData } from '../../Store/Store';
+import { GetAllFeedback, GetAllServices} from '../../Store/Store';
 import './home.scss'
 import './spinner.scss'
 
@@ -60,10 +60,12 @@ const Home = () => {
             
 
             {/* Previous work section */}
-            <Works></Works>
+            <section id="portfolio" className="portfolio">
+                <Works></Works>
+            </section>
 
 
-            <section className="feedback">
+            <section className="feedback" id="feedback">
                 <Container>
                         <h2 className="sub-heading text-center">Client's <span className="text-color">Feedback</span></h2>
                     <div className="row py-5">
@@ -83,7 +85,7 @@ const Home = () => {
                 </Container>
             </section>
 
-            <section className="contact pt-5 pb-2">
+            <section className="contact pt-5 pb-2" id="contact">
                 <Contact></Contact>
 
                 <p className="text-center mt-5">copyright Orange labs 2020</p>

@@ -5,18 +5,30 @@ import { Container } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import './addreview.scss'
 import { PostReview, CheckExistsPostReview } from '../../Store/Store';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 const AddReview = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit,  errors } = useForm();
     const token = sessionStorage.getItem('token');
     const [review, setReview] = useState({})
 
     const onSubmit = data => {
         data.photoUrl = JSON.parse(sessionStorage.getItem('user')).photoUrl;
-        PostReview(data, token).then(result => console.log(result))
+        PostReview(data, token).then(result => {
+            console.log(result)
+            if (result) {
+                successNotify();
+            }
+        })
     };
     useEffect(() => {
         CheckExistsPostReview(token).then(result => setReview(result[0]))
     }, [])
+
+
+      const successNotify = () => {
+          NotificationManager.success('Review Updated Successfully!', 'Review Updated!');
+    }
 
 
     return (
@@ -47,6 +59,7 @@ const AddReview = () => {
                     </div>
                  </Container>
             </Dashboard>
+            <NotificationContainer/>
         </div>
     );
 };
